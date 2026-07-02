@@ -122,7 +122,7 @@ function ChatBox({
   };
     const clearChat = async () => {
     try {
-      await API.post("/clear");
+      await API.post(`${API_BASE}/clear`);
       setMessages([]);
     } catch (err) {
       console.error(err);
@@ -147,7 +147,7 @@ function ChatBox({
     setLoading(true);
 
     try {
-      const res = await API.post("/chat", {
+      const res = await API.post(`${API_BASE}/chat`, {
         question: lastUser.text,
       });
 
@@ -194,7 +194,7 @@ function ChatBox({
     setLoading(true);
 
     try {
-      const res = await API.post("/chat", {
+      const res = await API.post(`${API_BASE}/chat`, {
         question:
           "Summarize the following conversation in concise bullet points:\n\n" +
           conversation,
@@ -255,10 +255,13 @@ function ChatBox({
     setLoading(true);
 
     controllerRef.current = new AbortController();
+    const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  "http://127.0.0.1:8000";
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/chat-stream",
+        `${API_BASE}/chat-stream`,
         {
           method: "POST",
           headers: {
