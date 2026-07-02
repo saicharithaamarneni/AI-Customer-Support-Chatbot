@@ -1,22 +1,17 @@
 from langchain_chroma import Chroma
-from langchain_ollama import OllamaEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 CHROMA_PATH = "chroma_db"
 
-embeddings = OllamaEmbeddings(
-    model="nomic-embed-text"
+embeddings = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
 
 def create_vector_store(chunks):
-    """
-    Add document chunks to the existing Chroma database.
-    If the database doesn't exist yet, Chroma will create it automatically.
-    """
-
     db = Chroma(
         persist_directory=CHROMA_PATH,
-        embedding_function=embeddings
+        embedding_function=embeddings,
     )
 
     db.add_documents(chunks)

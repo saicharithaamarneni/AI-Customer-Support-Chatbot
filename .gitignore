@@ -5,6 +5,7 @@ __pycache__/
 
 # Environment
 .env
+backend/.env
 
 # Node
 frontend/node_modules/
@@ -18,11 +19,12 @@ frontend/dist/
 # OS files
 .DS_Store
 Thumbs.db
+
 # Uploaded files
 backend/uploads/
 
 # Chroma Vector DB
 backend/chroma_db/
 
-# Python cache
+# Python database files
 *.db

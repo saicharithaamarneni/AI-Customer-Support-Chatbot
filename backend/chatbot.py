@@ -1,10 +1,16 @@
+from dotenv import load_dotenv
+import os
+
 from langchain_chroma import Chroma
-from langchain_ollama import OllamaEmbeddings, ChatOllama
+from langchain_groq import ChatGroq
+from langchain_huggingface import HuggingFaceEmbeddings
+
+load_dotenv()
 
 CHROMA_PATH = "chroma_db"
 
-embedding = OllamaEmbeddings(
-    model="nomic-embed-text"
+embedding = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
 db = Chroma(
@@ -12,7 +18,7 @@ db = Chroma(
     embedding_function=embedding
 )
 
-llm = ChatOllama(
+llm = ChatGroq(
     model="llama3.2",
     temperature=0.4
 )
