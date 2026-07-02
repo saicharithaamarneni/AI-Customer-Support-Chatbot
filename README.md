@@ -170,6 +170,15 @@ AI-Customer-Support-Chatbot
 - Docker Deployment
 
 ---
+## 🌐 Live Demo
+
+Frontend:
+https://ai-customer-support-chatbot-black.vercel.app/
+
+> ⚠️ Note:
+> This project uses a FastAPI backend with Ollama running locally.
+> The deployed frontend demonstrates the UI.
+> Full AI functionality requires running the backend locally.
 
 # 👩‍💻 Author
 
