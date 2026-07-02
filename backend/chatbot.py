@@ -19,7 +19,7 @@ db = Chroma(
 )
 
 llm = ChatGroq(
-    model="llama3.2",
+    model="llama-3.1-8b-instant",
     temperature=0.4
 )
 
